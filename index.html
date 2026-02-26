@@ -3,43 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ถึงคนที่รักที่สุด 🌙</title>
+<title>ถึงคนที่รักที่สุด 🤍</title>
 
 <style>
 body {
     margin: 0;
     font-family: "Prompt", sans-serif;
-    background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
-    height: 100vh;
-    overflow: hidden;
-    color: white;
+    background: #ffffff;
+    min-height: 100vh;
+    color: #333;
     text-align: center;
-}
-
-/* ดาว */
-.stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    animation: twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle {
-    from {opacity: 0.2;}
-    to {opacity: 1;}
 }
 
 /* หน้าหลัก */
 .container {
     position: relative;
-    top: 35%;
+    top: 35vh;
 }
 
 h1 {
@@ -65,17 +44,14 @@ button:hover {
 
 /* จดหมาย */
 .letter {
-    position: relative;
-    top: 10%;
-    width: 85%;
-    max-width: 450px;
-    margin: 20px auto;
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+    background: #ffe6f2;
     border-radius: 20px;
-    backdrop-filter: blur(10px);
     display: none;
-    animation: fadeIn 2s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -83,18 +59,21 @@ button:hover {
     to {opacity: 1;}
 }
 
-img {
+.letter img {
     width: 220px;
     border-radius: 15px;
-    margin-top: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.letter p {
+    line-height: 1.7;
+    font-size: 1.05em;
 }
 </style>
 </head>
 
 <body>
-
-<div class="stars"></div>
 
 <div class="container" id="home">
     <h1>วันนี้มีอะไรจะบอกเธอด้วยแหละ ✨</h1>
@@ -104,7 +83,7 @@ img {
 <div class="letter" id="letter">
   
     <img src="https://i.postimg.cc/nzsd0C53/1771439651384.jpg" alt="รูปของเรา">
-</div>
+
     <p>
         ถึงบี๋ของเค้า 💕<br><br>
         ตอนแรกก็คิดว่าเออ… คุยเล่น ๆ ขำ ๆ ไปวัน ๆ  
@@ -116,26 +95,13 @@ img {
         รักแฟนนะคั้บ 🤍
     </p>
 
-    <audio id="bgmusic" loop>
+</div>
+
+<audio id="bgmusic" loop>
   <source src="บอกรัก.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-// สุ่มดาว
-function createStars() {
-    const starsContainer = document.querySelector(".stars");
-    for (let i = 0; i < 100; i++) {
-        const star = document.createElement("div");
-        star.classList.add("star");
-        star.style.top = Math.random() * 100 + "vh";
-        star.style.left = Math.random() * 100 + "vw";
-        star.style.animationDuration = (Math.random() * 2 + 1) + "s";
-        starsContainer.appendChild(star);
-    }
-}
-createStars();
-
-// เปิดจดหมาย + เล่นเพลง
 function openLetter() {
     document.getElementById("home").style.display = "none";
     document.getElementById("letter").style.display = "block";
@@ -144,7 +110,4 @@ function openLetter() {
 </script>
 
 </body>
-
 </html>
-
-
