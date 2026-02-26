@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ถึงคนที่รักที่สุด 🌙</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Prompt", sans-serif;
+    background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+}
+
+/* ดาว */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {opacity: 0.2;}
+    to {opacity: 1;}
+}
+
+/* หน้าหลัก */
+.container {
+    position: relative;
+    top: 35%;
+}
+
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 15px 35px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 30px;
+    background: #ff4da6;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff1a8c;
+    transform: scale(1.08);
+}
+
+/* จดหมาย */
+.letter {
+    position: relative;
+    top: 10%;
+    width: 85%;
+    max-width: 450px;
+    margin: 20px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: none;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+img {
+    width: 220px;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="container" id="home">
+    <h1>วันนี้มีอะไรจะบอกเธอด้วยแหละ ✨</h1>
+    <button type="button" onclick="openLetter()">เปิดจดหมายรัก 💌</button>
+</div>
+
+<div class="letter" id="letter">
+    <p>
+        ถึงบี๋ของเค้า 💕<br><br>
+        ตอนแรกก็คิดว่าเออ… คุยเล่น ๆ ขำ ๆ ไปวัน ๆ  
+        ไป ๆ มา ๆ ดันรักเฉยเลย อ้าว งงมาก 🤦‍♂️<br><br>
+        บี๋นี่ก็ร้ายเนอะ  
+        ทำให้เรายิ้มได้ทั้งวัน ทั้งที่บางวันก็ปวดหัวเพราะบี๋นั่นแหละ 😤  
+        แต่จะให้เปลี่ยนแฟนไหม?  
+        ไม่อะ ขี้เกียจเริ่มใหม่ คนนี้ดื้อดีแล้ว 🤭 ✨<br><br>
+        รักแฟนนะคั้บ 🤍
+    </p>
+
+    <img src="https://i.postimg.cc/nzsd0C53/1771439651384.jpg" alt="รูปของเรา">
+</div>
+
+<audio id="bgmusic" loop>
+    <source src="https://files.catbox.moe/ovidrm.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// สุ่มดาว
+function createStars() {
+    const starsContainer = document.querySelector(".stars");
+    for (let i = 0; i < 100; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+        star.style.top = Math.random() * 100 + "vh";
+        star.style.left = Math.random() * 100 + "vw";
+        star.style.animationDuration = (Math.random() * 2 + 1) + "s";
+        starsContainer.appendChild(star);
+    }
+}
+createStars();
+
+// เปิดจดหมาย + เล่นเพลง
+function openLetter() {
+    document.getElementById("home").style.display = "none";
+    document.getElementById("letter").style.display = "block";
+    document.getElementById("bgmusic").play();
+}
+</script>
+
+</body>
+</html>
